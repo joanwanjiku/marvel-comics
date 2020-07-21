@@ -5,8 +5,8 @@ import hashlib
 import requests  # pip install requests to get this library
 from .models import Character
 
-PUBLIC_KEY = '2353a342668c6dc1db924a94391f6b7c'
-PRIVATE_KEY = '9b3b494ae44984e02239963dbac2b9da60461659'
+PUBLIC_KEY = '9124cadeb528b8c0c8282cbaa39d6d22'
+PRIVATE_KEY = '5b3761a41ecb79d455e70e6f27b1f8ff309ecf4c'
 
 ts = str(time.time())
 combined = ''.join([ts, PRIVATE_KEY, PUBLIC_KEY])
