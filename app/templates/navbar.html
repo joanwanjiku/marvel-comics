@@ -20,7 +20,7 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand animated slideInDown" href="" target="_blank">
+      <a class="navbar-brand animated slideInDown" href="">
         <strong>MARVELS</strong>
       </a>
 
@@ -41,43 +41,33 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link animated slideInDown" href="{{url_for('main.index')}}" target="_blank">COMICS</a>
+            <a class="nav-link animated slideInDown" href="{{url_for('main.index')}}">COMICS</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link animated slideInDown" href="" target="_blank">GAMES</a>
-          </li>
-          <li class="nav-item animated slideInDown">
-            <a class="nav-link" href="" target="_blank">GET YOUR COMICS</a>
-          </li>
+        
         </ul>
 
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item">
-            <a href="" class="nav-link animated slideInDown" target="_blank">
+            <a href="" class="nav-link animated slideInDown">
               <i class="fab fa-xbox"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link animated slideInDown" target="_blank">
+            <a href="" class="nav-link animated slideInDown">
               <i class="fab fa-playstation"></i>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="" class="nav-link border border-light rounded animated slideInDown"
-              target="_blank">
-              <i class="fas fa-spider"></i> MARVEL</a>
-          </li>
+          
         </ul>
-        <ul class="navbar-nav ml-auto nav-flex-icons">
           {% if current_user.is_authenticated %}
           <li class="nav-item">
-            <a href="" class="nav-link animated slideInDown" target="_blank">
+            <a href="" class="nav-link animated slideInDown">
               <i class="fab fa-xbox"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link animated slideInDown" target="_blank">
+            <a href="" class="nav-link animated slideInDown">
               <i class="fab fa-playstation"></i>
             </a>
           </li>
@@ -92,12 +82,12 @@
           </div>
           </li>
           {% else %}
+          
           <li class="nav-item">
-              <a  class="nav-link" href="{{url_for('auth.login')}}" style= 'margin-right:30px'><i class="fas fa-sign-in-alt"></i>&nbsp; <strong>Log In</strong></a>
+            <a href="{{url_for('auth.signup')}}" class="nav-link border border-light rounded animated slideInDown">
+              <i class="fas fa-spider"></i>Sign Up</a>
           </li>
-          <li class="nav-item">
-                  <a style= 'margin-right:30px' class="nav-link" href="{{url_for('auth.signup')}}"><i class="fas fa-user-plus"></i></i>&nbsp; <strong>Sign Up</strong></a>
-              </li>
+          
           {%endif%}
 
       </ul>

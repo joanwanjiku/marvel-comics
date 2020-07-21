@@ -1,7 +1,9 @@
 import os
 
 class Config:
-    pass
+    SECRET_KEY =os.environ.get('SECRET_KEY')
+    UPLOADED_PHOTOS_DEST = 'app/static/photos'
+
 
 
 class ProdConfg(Config):
@@ -10,12 +12,14 @@ class ProdConfg(Config):
     """
     pass
 class TestConfig(Config):
-    pass
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:123456@localhost/marvel'
+
 
 class DevConfig(Config):
     """
     configurations for dev environment inherits from Config
     """
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:123456@localhost/marvel'
     DEBUG = True
 
 config_options = {

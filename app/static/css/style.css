@@ -73,3 +73,46 @@ body,
     align-items: center;
     flex-direction: column;
 }
+
+#cats{
+  color: white;
+  font-size: 18px;
+}
+
+.pict{
+  margin-top: 2%;
+}
+.foot{
+  margin: 20px;
+  
+}
+#login{
+  margin-top: 5%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.456);
+  border-radius: 8px;
+  padding:3%;
+}
+#sign{
+  color:rgb(0, 0, 0);
+  text-decoration: underline;
+}
+
+#user{
+  margin-top: 4%;
+  color: white;
+}
+.pitches{
+  background-color: azure;
+  color: black;
+  padding: 2%;
+  border-radius: 8px;
+  margin-bottom: 1%;
+}
+.updateprofile{
+  margin-top: 5%;
+  color: white;
+}
+#imgform{
+  display: none;
+}
