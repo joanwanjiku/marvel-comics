@@ -1,4 +1,1 @@
-__pycache__
-instance/
-virtual
-start.sh
+venv/
