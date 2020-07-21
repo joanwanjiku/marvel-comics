@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% import 'macro.html' as macro%}
+{% block title %}Home{% endblock %}
+
+{% block main %}
+    <div class="container-fluid">
+        <div class="row">
+                {{macro.displayCharacters(chars)}}
+        </div>
+    </div>
+
+{% endblock%}%  
