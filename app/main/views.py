@@ -11,8 +11,12 @@ from . import main
 @main.route('/')
 def index():
     title= 'Home | Marvel'
+    return render_template('main/index.html' )
+
+@main.route('/characters')
+def all_characters():
     chars = get_characters()
-    return render_template('main/index.html', chars=chars)
+    return render_template('main/character.html', chars=chars) 
 
 @main.route('/char/<int:id>')
 def each_char(id):

@@ -1,9 +1,11 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {% extends 'base.html'%}
+{% extends 'base.html'%}
 {% import 'macro.html' as macro%}
 {% block title %}Home{% endblock %}
 
 {% block main %}
          <!--Carousel Wrapper-->
+  <div class="container-fluid">
+
   <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
 
     <!--Indicators-->
@@ -263,13 +265,10 @@
 
   </div>
   <!--/.Carousel Wrapper-->
-  <div class="container-fluid">
 
-        <div class="row">
-                {{macro.displayCharacters(chars)}}
-        </div>
+        
          <!-- Footer -->
-<footer class="page-footer font-small mdb-color pt-4">
+  <footer class="page-footer font-small mdb-color pt-4">
 
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
@@ -402,6 +401,6 @@
     <!-- Footer Links -->
   
   </footer>
-    </div>
+  </div>
 
 {% endblock%}%  
