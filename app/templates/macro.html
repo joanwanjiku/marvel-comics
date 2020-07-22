@@ -14,3 +14,41 @@
     </div>
     {% endfor %}
 {% endmacro %}
+
+{% macro displayCharactersComics(comic_list) %}
+    {% for comic in  comic_list %}
+    <div class="card mt-1">
+        <h5 class="card-header">{{comic.title}}</h5>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="{{comic.thumbnail}}/portrait_medium.jpg" alt="">
+                </div>
+                <div class="col-sm-6">
+                    <p>{{comic.description}}</p>
+                    <p>PageCount:- <span>{{comic.page_count}}</span></p>
+                    <p>Price:- <span>{{comic.price}}</span></p>
+                </div>  
+            </div>                    
+        </div>
+      </div>
+    {% endfor %}
+{% endmacro %}
+
+{% macro displayComics(comic_list) %}
+    {% for comic in comic_list %}
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="front">
+                <img src="{{comic.thumbnail}}/portrait_fantastic.jpg" alt="char.name">
+            </div>
+            <div class="back">
+                <p>{{comic.title}}</p>
+                <p>PageCount:- <span>{{comic.page_count}}</span></p>
+                <p>Price:- <span>{{comic.price}}</span></p>
+                <a href="{{url_for('main.each_comic', id=comic.id)}}" class="btn btn-info btn-small">View</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endmacro %}

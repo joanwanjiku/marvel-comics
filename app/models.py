@@ -11,6 +11,22 @@ class Character:
         self.description = description
         self.path = img_url
         self.comics = comics
+# {
+#     'id': 1308, 
+#     'digitalId': 0, 
+#     'title': 'Marvel Age Spider-Man Vol. 2: Everyday Hero (Digest)', 
+#     'issueNumber': 0, 'variantDescription': '', 'description': '"The Marvel Age of Comics continues! This time around, Spidey meets his match against such classic villains as Electro and the Lizard, and faces the return of one of his first foes: the Vulture! Plus: Spider-Man vs. the Living Brain, Peter Parker\'s fight with Flash Thompson, and the wall-crawler tackles the high-flying Human Torch!"', 
+#     'modified': '2018-01-22T15:42:11-0500', 'isbn': '0-7851-1451-3', 'upc': '5960611451-00111', 'diamondCode': '', 'ean': '', 'issn': '', 'format': 'Digest', 
+#     'pageCount': 96, 'textObjects': [{'type': 'issue_solicit_text', 'language': 'en-us', 'text': '"The Marvel Age of Comics continues! This time around, Spidey meets his match against such classic villains as Electro and the Lizard, and faces the return of one of his first foes: the Vulture! Plus: Spider-Man vs. the Living Brain, Peter Parker\'s fight with Flash Thompson, and the wall-crawler tackles the high-flying Human Torch!"'}], 
+#     }
+class Comic:
+    def __init__(self, id, title, description, page_count, thumbnail, price):
+        self.id = id
+        self.title = title
+        self.description = description
+        self.page_count = page_count
+        self.thumbnail = thumbnail
+        self.price = price
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
@@ -53,3 +69,10 @@ class User(UserMixin, db.Model):
 # 'thumbnail': {'path': 'http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0', 'extension': 'jpg'}, 
 # 'resourceURI': 'http://gateway.marvel.com/v1/public/characters/1009351', 
 # 'comics': {'available': 1660, 'collectionURI': 'http://gateway.marvel.com/v1/public/characters/1009351/comics'}}
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer)
+    char_id = db.Column(db.Integer)
+    char_name = db.Column(db.String)
+    char_path = db.Column(d.String)
+    
