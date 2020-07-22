@@ -3,7 +3,7 @@ import json
 import hashlib
 
 import requests  # pip install requests to get this library
-from .models import Character
+from .models import Character, Comic
 
 PUBLIC_KEY = '2353a342668c6dc1db924a94391f6b7c'
 PRIVATE_KEY = '9b3b494ae44984e02239963dbac2b9da60461659'
@@ -26,7 +26,12 @@ def get_characters():
     return character_lis
 
 def get_characters_by_name(name):
-    pass
+    global PUBLIC_KEY, hash_value, ts
+    request_url = 'https://gateway.marvel.com/v1/public/characters?name=%s&ts=%s&apikey=%s&hash=%s' % (name, ts, PUBLIC_KEY, hash_value)
+    specific_char = requests.get(request_url)
+    results = specific_char.json()
+    results_char = results.get('data').get('results')
+    return results_char
 
 def get_character_by_id(id):
     global PUBLIC_KEY, hash_value, ts
@@ -36,6 +41,45 @@ def get_character_by_id(id):
     results = specific_char.json()
     results_char = results.get('data').get('results')
     return results_char
+
+def get_comics_by_charid(id):
+    global PUBLIC_KEY, hash_value, ts
+    request_url = 'http://gateway.marvel.com/v1/public/characters/%s/comics?&ts=%s&apikey=%s&hash=%s' %(id, ts, PUBLIC_KEY, hash_value)
+    comic_json = requests.get(request_url)
+    comic_res = comic_json.json().get('data').get('results')
+    comic_results = process_comics(comic_res)
+    return comic_results
+
+def get_all_comics():
+    global PUBLIC_KEY, hash_value, ts
+    request_url = 'http://gateway.marvel.com/v1/public/comics?orderBy=-modified&ts=%s&apikey=%s&hash=%s' % (ts, PUBLIC_KEY, hash_value)
+    comic_json = requests.get(request_url)
+    comic_res = comic_json.json().get('data').get('results')
+    comic_results = process_comics(comic_res)
+    return comic_results
+
+def get_comic_by_id(id):
+    global PUBLIC_KEY, hash_value, ts
+
+    request_url = 'http://gateway.marvel.com/v1/public/comics/%s?&ts=%s&apikey=%s&hash=%s' % (id, ts, PUBLIC_KEY, hash_value)
+    specific_comic = requests.get(request_url)
+    results = specific_comic.json()
+    results_comic = results.get('data').get('results')
+    return results_comic
+
+def process_comics(items):
+    comic_res = []
+    for item in items:
+        id = item.get('id')
+        title = item.get('title')
+        description = item.get('description')
+        page_cnt = item.get('pageCount')
+        thumb = item.get('thumbnail').get('path')
+        price = item.get('prices')[0].get('price')
+        
+        comic_obj = Comic(id, title, description, page_cnt, thumb, price)
+        comic_res.append(comic_obj)
+    return comic_res
 
 
 def process_results(items):
