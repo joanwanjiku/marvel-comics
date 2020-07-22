@@ -1,7 +1,6 @@
 __pycache__
 instance/
 virtual
-start.sh
 migrations
 venv/
 
