@@ -69,3 +69,10 @@ class User(UserMixin, db.Model):
 # 'thumbnail': {'path': 'http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0', 'extension': 'jpg'}, 
 # 'resourceURI': 'http://gateway.marvel.com/v1/public/characters/1009351', 
 # 'comics': {'available': 1660, 'collectionURI': 'http://gateway.marvel.com/v1/public/characters/1009351/comics'}}
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer)
+    char_id = db.Column(db.Integer)
+    char_name = db.Column(db.String)
+    char_path = db.Column(d.String)
+    
