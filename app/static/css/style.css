@@ -102,15 +102,17 @@ body,
   margin-top: 4%;
   color: white;
 }
-
+.pitches{
+  background-color: azure;
+  color: black;
+  padding: 2%;
+  border-radius: 8px;
+  margin-bottom: 1%;
+}
 .updateprofile{
   margin-top: 5%;
   color: white;
 }
 #imgform{
   display: none;
-}
-.account-img {
-  height: 250px;
-  width: 250px;
 }
