@@ -3,3 +3,5 @@ instance/
 virtual
 start.sh
 migrations
+venv/
+

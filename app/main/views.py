@@ -4,11 +4,25 @@ from flask_login import login_required,current_user
 from ..models import User
 from .form import UpdateProfile
 from .. import db,photos
+from ..requests import get_characters, get_character_by_id
+from . import main
+
 
 @main.route('/')
 def index():
-    
-    return render_template('index.html')
+    title= 'Home | Marvel'
+    return render_template('main/index.html' )
+
+@main.route('/characters')
+def all_characters():
+    chars = get_characters()
+    return render_template('main/character.html', chars=chars) 
+
+@main.route('/char/<int:id>')
+def each_char(id):
+    character = get_character_by_id(id)[0]
+    title = character.get('name')
+    return render_template('main/each_char.html', character=character)
 
 @main.route('/user/<name>')
 def profile(name):
@@ -43,4 +57,6 @@ def update_pic(name):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',name=name))
+
+
 
