@@ -36,7 +36,7 @@ class User(UserMixin, db.Model):
     secure_password = db.Column(db.String(255),nullable = False)
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String(150),default ='default.png')
-    
+    comments = db.relationship('Comment', backref='user', lazy='dynamic')
 
     @property
     def set_password(self):
@@ -71,8 +71,9 @@ class User(UserMixin, db.Model):
 # 'comics': {'available': 1660, 'collectionURI': 'http://gateway.marvel.com/v1/public/characters/1009351/comics'}}
 class Comment(db.Model):
     __tablename__ = 'comments'
-    id = db.Column(db.Integer)
+    id = db.Column(db.Integer, primary_key=True)
     char_id = db.Column(db.Integer)
     char_name = db.Column(db.String)
-    char_path = db.Column(d.String)
+    char_path = db.Column(db.String)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
