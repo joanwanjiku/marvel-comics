@@ -56,7 +56,6 @@ def each_comic(id):
 @main.route('/user/<name>')
 def profile(name):
     user = User.query.filter_by(username = name).first()
-    # user_id = current_user._get_current_object().id
     if user is None:
         abort(404)
 
