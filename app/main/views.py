@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for,abort,request
 from . import main
 from flask_login import login_required,current_user
-from ..models import User
+from ..models import User, Comment
 from .form import UpdateProfile
 from .. import db,photos
 from ..requests import get_characters, get_character_by_id, get_characters_by_name, get_comics_by_charid, get_all_comics, get_comic_by_id
@@ -42,8 +42,9 @@ def char_comics(id):
 @main.route('/char/<int:id>')
 def each_char(id):
     character = get_character_by_id(id)[0]
+    comments = Comment.get_all_comments(id)
     title = character.get('name')
-    return render_template('main/each_char.html', character=character)
+    return render_template('main/each_char.html', character=character, comments=comments)
 
 @main.route('/comic/<int:id>')
 def each_comic(id):
@@ -55,7 +56,7 @@ def each_comic(id):
 @main.route('/user/<name>')
 def profile(name):
     user = User.query.filter_by(username = name).first()
-    user_id = current_user._get_current_object().id
+    # user_id = current_user._get_current_object().id
     if user is None:
         abort(404)
 
@@ -71,7 +72,7 @@ def updateprofile(name):
     if form.validate_on_submit():
         user.bio = form.bio.data
         user.save_u()
-        return redirect(url_for('.profile',name = name))
+        return redirect(url_for('main.profile',name = name))
     return render_template('profile/update.html',form =form)
 
 
@@ -86,5 +87,26 @@ def update_pic(name):
         db.session.commit()
     return redirect(url_for('main.profile',name=name))
 
+@main.route('/char/<int:char_id>/comment', methods=['POST', 'GET'])
+@login_required
+def char_comment(char_id):
+    character = get_character_by_id(char_id)[0]
+    print(character.get('id'))
+    comments = Comment.get_all_comments(char_id)
+    if request.method== 'POST':        
+        title = request.form['title']
+        content = request.form['content']
+        new_comment = Comment(
+            char_id = character.get('id'),
+            char_name = character.get('name'),
+            char_path = character.get('thumbnail').get('path'),
+            title = title,
+            content = content,
+            user=current_user
+            )
+        new_comment.save_comment()
+        return redirect(url_for('main.each_char', id = char_id))
+    return render_template('main/each_char.html', character=character, comments=comments)
+    
 
 

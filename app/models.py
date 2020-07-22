@@ -75,5 +75,16 @@ class Comment(db.Model):
     char_id = db.Column(db.Integer)
     char_name = db.Column(db.String)
     char_path = db.Column(db.String)
+    title = db.Column(db.String)
+    content = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_all_comments(cls, char_id):
+        comments = cls.query.filter_by(char_id = char_id)
+        return comments
     
