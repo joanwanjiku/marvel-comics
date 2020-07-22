@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% import 'macro.html' as macro%}
+{% block title %}Character{% endblock %}
+
+{% block main %}
+
+<div class="row">
+    {{macro.displayComics(comics)}}
+</div>
+
+{% endblock%}%  

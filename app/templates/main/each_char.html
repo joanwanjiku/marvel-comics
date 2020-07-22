@@ -11,6 +11,7 @@
             <div class="col-sm-6">
                 <h2>{{character.name}}</h2>
                 <p>{{character.description}}</p>
+                <a href="{{url_for('main.char_comics', id=character.id)}}">Comics for  {{character.name}}</a>
             </div>
         </div>
     </div>
