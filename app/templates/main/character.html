@@ -3,30 +3,38 @@
 {% block title %}Character{% endblock %}
 
 {% block main %}
-<div class="row mt-2"></div>
-<div class="row mt-2"></div>
-<div class="row mt-2"></div>
-<div class="row mt-2"></div>
-<div class="row mt-2"></div>
+<div class="container-fluid" style="background-color: rgba(0, 0, 0, 0.558);">
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
 
-<div class="row mt-2">
-    <div class="col-sm-12">
-        <form action="">
-            <div class="form-row">
-                <div class="col">
-                    <input type="text" name="char_search" id="" class="form-control col" placeholder="Search for a marvel Character eg,spider-man">
+    <div class="row" style="width:80%; margin:0 auto;" >
+        <div class="col-sm-12">
+            <form action="">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" name="char_search" id="" class="form-control col" placeholder="Search for a marvel Character eg,spider-man">
+                    </div>
+                    <div class="col">
+                        <input type="submit"  value="Submit" class="btn btn-default">
+                    </div>
                 </div>
-                <div class="col">
-                    <input type="submit"  value="Submit" class="btn btn-default">
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        
+
     </div>
-    
+    <div class="row" style="width:95%; margin:0 auto;">
+        {{macro.displayCharacters(chars)}}
+    </div>
+</div>
 
-</div>
-<div class="row">
-    {{macro.displayCharacters(chars)}}
-</div>
 
 {% endblock%}%  

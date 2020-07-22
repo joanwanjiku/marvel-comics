@@ -1,9 +1,9 @@
 <!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark elegant-color scrolling-navbar">
+<div class="row" >
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark elegant-color scrolling-navbar">
     <div class="container">
-
       <!-- Brand -->
-      <a class="navbar-brand" href="" target="_blank">
+      <a class="navbar-brand" href="/" >
         <strong>MARVEL</strong>
       </a>
 
@@ -19,7 +19,7 @@
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="/">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -27,11 +27,9 @@
             <a class="nav-link" href="/characters">Characters</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="" target="_blank">Games</a>
+            <a class="nav-link" href="/comics">Comics</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="" target="_blank">Texts</a>
-          </li>
+          
         </ul>
 
         <!-- Right -->
@@ -46,17 +44,34 @@
               <i class="fab fa-twitter"></i>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/signup" class="nav-link border border-light rounded">
-              <i class="fas fa-spider"></i>Sign up
-            </a>
-          </li>
+          {% if current_user.is_authenticated %}
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{current_user.username}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{url_for('main.profile', name=current_user.username)}}" style="color: black;">Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{url_for('auth.logout')}}" style="color: black;">Sign out</a>
+                </div>
+                </li>
+            {% else %}
+            <li class="nav-item">
+              <a href="/signup" class="nav-link border border-light rounded">
+                <i class="fas fa-spider"></i>Sign up
+              </a>
+            </li>
+            {% endif %}
+
+          
         </ul>
 
       </div>
 
     </div>
   </nav>
+</div>
+
   <style type="text/css">
     @media (min-width: 800px) and (max-width: 850px) {
       .navbar:not(.top-nav-collapse) {

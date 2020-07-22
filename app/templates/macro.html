@@ -52,3 +52,9 @@
     </div>
     {% endfor %}
 {% endmacro %}
+{% macro displayComments(comment_list) %}
+    {% for comment in comment_list %}
+        <p>{{comment.content}}</p>
+        <cite>{{comment.user.username}}</cite>
+    {% endfor %}
+{% endmacro %}
