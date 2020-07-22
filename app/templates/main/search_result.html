@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% import 'macro.html' as macro%}
+{% block title %}Character{% endblock %}
+
+{% block main %}
+<div class="container-fluid">
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-2"></div>
+    <div class="row mt-1" style="width: 70%; margin:0 auto;">
+        <div class="col-sm-6">
+            <img src="{{result.thumbnail.path}}/landscape_incredible.jpg" alt="">
+        </div>
+        <div class="col-sm-6">
+            <h2>{{result.name}}</h2>
+            <p>{{result.description}}</p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock%}%  

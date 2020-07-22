@@ -15,12 +15,14 @@
       </ul>          
     </div>
   </nav> -->
-  <!-- Navbar -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" style="background-color: rgba(37, 41, 40, 0.6);">
-    <div class="container">
+<!-- Navbar -->
+<div class="row" >
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark elegant-color scrolling-navbar" style="background-color: rgba(37, 41, 40, 0.6);">
 
-      <a class="navbar-brand animated slideInDown" href="">
-        <strong>MARVELS</strong>
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="/" >
+        <strong>MARVEL</strong>
       </a>
 
       <!-- Collapse -->
@@ -35,30 +37,31 @@
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link animated slideInDown" href="{{url_for('main.all_characters')}}">Characters
+            <a class="nav-link" href="/">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link animated slideInDown" href="{{url_for('main.index')}}">COMICS</a>
+            <a class="nav-link" href="/characters">Characters</a>
           </li>
-        
+          <li class="nav-item">
+            <a class="nav-link" href="/comics">Comics</a>
+          </li>
+          
         </ul>
 
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item">
-            <a href="" class="nav-link animated slideInDown">
-              <i class="fab fa-xbox"></i>
+            <a href="" class="nav-link" target="_blank">
+              <i class="fab fa-facebook-f"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link animated slideInDown">
-              <i class="fab fa-playstation"></i>
+            <a href="" class="nav-link" target="_blank">
+              <i class="fab fa-twitter"></i>
             </a>
           </li>
-          
-        </ul>
           {% if current_user.is_authenticated %}
           <li class="nav-item">
             <a href="" class="nav-link animated slideInDown">
@@ -81,17 +84,26 @@
           </div>
           </li>
           {% else %}
+            <li class="nav-item">
+              <a href="/signup" class="nav-link border border-light rounded">
+                <i class="fas fa-spider"></i>Sign up
+              </a>
+            </li>
+            {% endif %}
           
-          <li class="nav-item">
-            <a href="{{url_for('auth.signup')}}" class="nav-link border border-light rounded animated slideInDown">
-              <i class="fas fa-spider"></i>Sign Up</a>
-          </li>
-          
-          {%endif%}
-
-      </ul>
+        </ul>
 
       </div>
 
     </div>
   </nav>
+</div>
+
+  <style type="text/css">
+    @media (min-width: 800px) and (max-width: 850px) {
+      .navbar:not(.top-nav-collapse) {
+        background: #1C2331 !important;
+      }
+    }
+
+  </style>
