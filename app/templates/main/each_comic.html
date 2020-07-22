@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% import 'macro.html' as macro%}
+{% block title %}{{title}}{% endblock %}
+
+{% block main %}
+    <div class="container-fluid">
+        <div class="row mt-1">
+            <div class="col-sm-6">
+                <img src="{{comic.thumbnail.path}}/landscape_incredible.jpg" alt="">
+            </div>
+            <div class="col-sm-6">
+                <h2>{{comic.title}}</h2>
+                <p>{{comic.description}}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock%}%  

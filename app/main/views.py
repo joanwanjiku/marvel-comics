@@ -4,25 +4,53 @@ from flask_login import login_required,current_user
 from ..models import User
 from .form import UpdateProfile
 from .. import db,photos
-from ..requests import get_characters, get_character_by_id
+from ..requests import get_characters, get_character_by_id, get_characters_by_name, get_comics_by_charid, get_all_comics, get_comic_by_id
 from . import main
 
 
 @main.route('/')
 def index():
     title= 'Home | Marvel'
-    return render_template('main/index.html' )
+
+    return render_template('main/index.html')
 
 @main.route('/characters')
 def all_characters():
+    character_search = request.args.get('char_search')
+    if character_search:
+        return redirect(url_for('.search_result', char_name=character_search))
     chars = get_characters()
     return render_template('main/character.html', chars=chars) 
+
+@main.route('/comics')
+def all_comics():
+    comics = get_all_comics()
+    title= 'Comics'
+    return render_template('main/comic.html', comics = comics, title=title)
+
+@main.route('/results/<char_name>')
+def search_result(char_name):
+    result = get_characters_by_name(char_name)[0]
+    return render_template('main/search_result.html', result=result)
+
+@main.route('/<int:id>/comics')
+def char_comics(id):
+    character_comics = get_comics_by_charid(id)
+
+    return render_template('main/character_comics.html', character_comics = character_comics)
 
 @main.route('/char/<int:id>')
 def each_char(id):
     character = get_character_by_id(id)[0]
     title = character.get('name')
     return render_template('main/each_char.html', character=character)
+
+@main.route('/comic/<int:id>')
+def each_comic(id):
+    comic = get_comic_by_id(id)[0]
+    title = 'Comc'
+    return render_template('main/each_comic.html', comic=comic, title=title)
+
 
 @main.route('/user/<name>')
 def profile(name):

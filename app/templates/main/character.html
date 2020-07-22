@@ -3,7 +3,28 @@
 {% block title %}Character{% endblock %}
 
 {% block main %}
+<div class="row mt-2"></div>
+<div class="row mt-2"></div>
+<div class="row mt-2"></div>
+<div class="row mt-2"></div>
+<div class="row mt-2"></div>
 
+<div class="row mt-2">
+    <div class="col-sm-12">
+        <form action="">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" name="char_search" id="" class="form-control col" placeholder="Search for a marvel Character eg,spider-man">
+                </div>
+                <div class="col">
+                    <input type="submit"  value="Submit" class="btn btn-default">
+                </div>
+            </div>
+        </form>
+    </div>
+    
+
+</div>
 <div class="row">
     {{macro.displayCharacters(chars)}}
 </div>
