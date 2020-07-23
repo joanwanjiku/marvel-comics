@@ -1,4 +1,4 @@
-# Pitch_App
+# Marvel Comics!
 
 This project was generated with [Python](https://github.com/python) version 3.7.8
   
@@ -59,4 +59,4 @@ During the creation of this webpage we used Python.
 In case of anything find us here: kingsleymuturi9@gmail.com, joan@gmail.com, bryson@gmail.com feel free to communicate any issue with the webpage
 
 ### [LICENSE](https://github.com/joanwanjiku/marvel-comics/blob/master/LICENSE)
-Copyright (c) 2020 [Kingsley Muturi ](https://github.com/Kingsleymuturi),[Joanwanjiku](https://github.com/joanwanjiku),[Bryson Mundia](https://github.com/Brysonmundia)
+Copyright (c) 2020 [Kingsley Muturi ](https://github.com/Kingsleymuturi),[Joanwanjiku](https://github.com/joanwanjiku),[Bryson](https://github.com/Bryson69)
