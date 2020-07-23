@@ -12,14 +12,14 @@ class ProdConfg(Config):
     """
     pass
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://bryson:0987@localhost/marvel'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:123456@localhost/marvel'
 
 
 class DevConfig(Config):
     """
     configurations for dev environment inherits from Config
     """
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://bryson:0987@localhost/marvel'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:123456@localhost/marvel'
     DEBUG = True
 
 config_options = {

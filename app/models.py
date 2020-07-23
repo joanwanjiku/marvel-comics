@@ -104,3 +104,4 @@ class Favourite(db.Model):
     def get_favourites(cls, id):
         favourites = cls.query.filter_by(user_id = id).all()
         return favourites
+
