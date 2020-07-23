@@ -1,5 +1,7 @@
 # Marvel-comics.
 
+### This project was generated with [Python](https://github.com/python) version 3.7.8
+
 ## Contributors
 **Joan Wanjiku** **Kingsley Muturi** **Bryson Mundia** **Albert Obwoge**
 
@@ -7,7 +9,7 @@
     - Joan Wanjiku --> `https://github.com/joanwanjiku`
     - Kingsley Muturi --> `https://github.com/Kingsleymuturi`
     - Bryson Mundia --> `https://github.com/Bryson69`
-    - Albert Obwoge -->
+    - Albert Obwoge --> 
 
 ## Description
 
@@ -38,6 +40,22 @@
 - After cloning navigate to the project.
 - Run `pip install` to install all the dependencies
 - Now run the project using your terminal with the command `python3.6 manage.py or ./start.sh`
+
+## Known Bugs
+There are no known bugs yet.
+
+### Development
+Want to contribute? Great!
+
+To fix a bug or enhance an existing module, follow these steps:
+
+- Fork the repo
+- Create a new branch (`git checkout -b improve-feature`)
+- Make the appropriate changes in the files
+- Add changes to reflect the changes made
+- Commit your changes (`git commit -m 'Improve feature'`)
+- Push to the branch (`git push origin improve-feature`)
+- Create a Pull Request
 
 ## Technologies Used
 
@@ -72,4 +90,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-# @marvel-comics
+## [LICENSE](https://github.com/joanwanjiku/marvel-comics/blob/master/LICENSE)

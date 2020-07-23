@@ -37,7 +37,7 @@ class User(UserMixin, db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String(150),default ='default.png')
     comments = db.relationship('Comment', backref='user', lazy='dynamic')
-
+    favourites = db.relationship('Favourite', backref = 'user', lazy='dynamic')
     @property
     def set_password(self):
         raise AttributeError('You cannot read the password attribute')
@@ -87,4 +87,20 @@ class Comment(db.Model):
     def get_all_comments(cls, char_id):
         comments = cls.query.filter_by(char_id = char_id)
         return comments
-    
+
+class Favourite(db.Model):
+    __tablename__ = 'favourites'
+    id = db.Column(db.Integer, primary_key=True)
+    char_id = db.Column(db.Integer)
+    char_name = db.Column(db.String)
+    char_path = db.Column(db.String)    
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def save_fav(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_favourites(cls, id):
+        favourites = cls.query.filter_by(user_id = id).all()
+        return favourites
