@@ -21,11 +21,12 @@
             <div class="col-sm-6">
                 <h2>{{character.name}}</h2>
                 <p>{{character.description}}</p>
-                <a href="{{url_for('main.char_comics', id=character.id)}}">Comics for  {{character.name}}</a>
+                <a href="{{url_for('main.char_comics', id=character.id)}}">Comics for  {{character.name}}</a><br>
+               <button class="btn btn-success" id="favbtn"><a href="{{url_for('main.favourite', id=character.id)}}">Add to favourites</a></button> 
             </div>
         </div>
-        <div class="row mt-1" style="width: 80%; margin: 0 auto;">
-            <div class="col-sm-7">
+        <div class="row mt-1">
+            <div class="col-sm-7 mt-2" style="background-color: rgba(207, 201, 201, 0.354); color:black; box-shadow: 0 10px 6px -6px #777;">
                 {{macro.displayComments(comments)}}
             </div>
             <div class="col-sm-5">

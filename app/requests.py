@@ -52,7 +52,7 @@ def get_comics_by_charid(id):
 
 def get_all_comics():
     global PUBLIC_KEY, hash_value, ts
-    request_url = 'http://gateway.marvel.com/v1/public/comics?orderBy=-modified&ts=%s&apikey=%s&hash=%s' % (ts, PUBLIC_KEY, hash_value)
+    request_url = 'http://gateway.marvel.com/v1/public/comics?orderBy=-modified&limit=40&ts=%s&apikey=%s&hash=%s' % (ts, PUBLIC_KEY, hash_value)
     comic_json = requests.get(request_url)
     comic_res = comic_json.json().get('data').get('results')
     comic_results = process_comics(comic_res)

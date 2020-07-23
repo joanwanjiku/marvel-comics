@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for,abort,request
 from . import main
 from flask_login import login_required,current_user
-from ..models import User, Comment
+from ..models import User, Comment, Favourite
 from .form import UpdateProfile
 from .. import db,photos
 from ..requests import get_characters, get_character_by_id, get_characters_by_name, get_comics_by_charid, get_all_comics, get_comic_by_id
@@ -56,10 +56,12 @@ def each_comic(id):
 @main.route('/user/<name>')
 def profile(name):
     user = User.query.filter_by(username = name).first()
+    print(user.id)
+    favourites = Favourite.get_favourites(user.id)
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html", user = user)
+    return render_template("profile/profile.html", user = user, favourites=favourites)
 
 @main.route('/user/<name>/updateprofile', methods = ['POST','GET'])
 @login_required
@@ -107,5 +109,21 @@ def char_comment(char_id):
         return redirect(url_for('main.each_char', id = char_id))
     return render_template('main/each_char.html', character=character, comments=comments)
     
+@main.route('/char/<int:id>/favourite/')
+@login_required
+def favourite(id):
+    character = get_character_by_id(id)[0]
+    comments = Comment.get_all_comments(id)
+
+    fav_char = Favourite(
+        char_id = character.get('id'),
+        char_name = character.get('name'),
+        char_path = character.get('thumbnail').get('path'),
+        user = current_user
+    )
+    fav_char.save_fav()
+    return redirect(url_for('main.each_char', id=character.get('id')))
+
+
 
 

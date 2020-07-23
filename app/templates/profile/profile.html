@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-
+{% import 'macro.html' as macro%}
 
 {% block content %}
 <div class="bg-image">
@@ -41,6 +41,13 @@
         </div>
     </div>
   </div>
+</div>
+<div class="row mt-1">
+  <div class="col-sm-12">
+    <h6 style="color: rgb(16, 247, 247);">Favourite Characters</h6>
+    {{macro.displayFavs(favourites)}}
+  </div>
+  
 </div>
 </div>
 </div>
