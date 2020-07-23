@@ -3,9 +3,6 @@
 This project was generated with [Python](https://github.com/python) version 3.7.8
   
 #### Are you a Marvel fan?? Here is an application that will satisafy almost everything you want to know about marvel. Current version 2020
-</table>
-</tr>
-</td>
 
 #### By **Kingsley**, **Joan**, **Bryson**
   
@@ -54,7 +51,7 @@ To fix a bug or enhance an existing module, follow these steps:
 - Create a Pull Request 
 
 ## Technologies Used
-During the creation of this webpage we used Python.
+- Flask, Python
 ## Support and contact details
 In case of anything find us here: kingsleymuturi9@gmail.com, joan@gmail.com, bryson@gmail.com feel free to communicate any issue with the webpage
 
