@@ -7,7 +7,7 @@ This project was generated with [Python](https://github.com/python) version 3.7.
 </tr>
 </td>
 
-#### By **Kingsley** **Joan** **Bryson**
+#### By **Kingsley**, **Joan**, **Bryson**
   
 ## Description of functionality:
 This app enables users to view and search for marvel characters along with viewing comics from the marvel team. More is yet to come with time!
