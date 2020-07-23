@@ -5,8 +5,8 @@ import hashlib
 import requests  # pip install requests to get this library
 from .models import Character, Comic
 
-PUBLIC_KEY = '9124cadeb528b8c0c8282cbaa39d6d22'
-PRIVATE_KEY = '5b3761a41ecb79d455e70e6f27b1f8ff309ecf4c'
+PUBLIC_KEY = '<>'
+PRIVATE_KEY = '<>'
 
 ts = str(time.time())
 combined = ''.join([ts, PRIVATE_KEY, PUBLIC_KEY])
