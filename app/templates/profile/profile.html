@@ -1,12 +1,13 @@
 {% extends 'base.html'%}
 
-{% block main %}
-<div class="container" style="margin-top: 1%">
+
+{% block content %}
+<div class="bg-image">
+<div class="container">
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4 pict">      
-
-    <div class="card testimonial-card" style="background-color: rgb(163, 241, 241);">
+    <div class="card testimonial-card" style="background-color: rgb(163, 241, 241);margin-top: 30%;">
       <div class="card-up indigo lighten-1"></div>
         <div class="avatar mx-auto">
           <img src="{{url_for('static',filename=user.profile_pic_path)}}"  class="account-img rounded-circle" style="margin-top: 3%; height:20vh; width:30%;" alt="avatar">  
@@ -39,6 +40,7 @@
         </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 {% endblock %}

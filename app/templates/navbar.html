@@ -1,6 +1,24 @@
+<!-- <nav class="mb-1 navbar navbar-expand-lg navbar-dark " style="background-color: rgba(37, 41, 40, 0.6);">
+    <a class="navbar-brand" href="{{url_for('main.index')}}"><strong>Marvel-comics</strong> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('main.index')}}" style="color: white;">Home <span class="sr-only">(current)</span></a>
+        </li>                  
+        
+      </ul>
+      <ul class="navbar-nav ml-auto">        
+      </ul>          
+    </div>
+  </nav> -->
 <!-- Navbar -->
 <div class="row" >
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark elegant-color scrolling-navbar">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark elegant-color scrolling-navbar" style="background-color: rgba(37, 41, 40, 0.6);">
+
     <div class="container">
       <!-- Brand -->
       <a class="navbar-brand" href="/" >
@@ -45,24 +63,33 @@
             </a>
           </li>
           {% if current_user.is_authenticated %}
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{current_user.username}}
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{url_for('main.profile', name=current_user.username)}}" style="color: black;">Profile</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{url_for('auth.logout')}}" style="color: black;">Sign out</a>
-                </div>
-                </li>
-            {% else %}
+          <li class="nav-item">
+            <a href="" class="nav-link animated slideInDown">
+              <i class="fab fa-xbox" style="color: white;"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link animated slideInDown">
+              <i class="fab fa-playstation" style="color: white;"></i>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style= 'margin-right:30px' data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user" style="color: white;"></i>&nbsp;<strong style="color: white;">{{current_user.username}}</strong></a>
+          <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+            <a class="dropdown-item" href="{{url_for('main.profile',name=current_user.username)}}"><i class="far fa-user"></i>&nbsp; My account</a>
+            <a class="dropdown-item" href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i>&nbsp; Log out</a>
+          </div>
+          </li>
+          {% else %}
             <li class="nav-item">
               <a href="/signup" class="nav-link border border-light rounded">
                 <i class="fas fa-spider"></i>Sign up
               </a>
             </li>
             {% endif %}
-
           
         </ul>
 
