@@ -4,5 +4,5 @@ virtual
 migrations
 
 venv/
-__pycache__/
-virtual/
+# __pycache__/
+# virtual/
