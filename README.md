@@ -3,13 +3,10 @@
 ### This project was generated with [Python](https://github.com/python) version 3.7.8
 
 ## Contributors
-**Joan Wanjiku** **Kingsley Muturi** **Bryson Mundia** **Albert Obwoge**
-
-## Check out their repositories...
-    - Joan Wanjiku --> `https://github.com/joanwanjiku`
-    - Kingsley Muturi --> `https://github.com/Kingsleymuturi`
-    - Bryson Mundia --> `https://github.com/Bryson69`
-    - Albert Obwoge --> 
+- By Joan Wanjiku <https://github.com/joanwanjiku>
+- By Kingsley Muturi <https://github.com/Kingsleymuturi>
+- By Bryson Mundia <https://github.com/Bryson69>
+- By Albert Obwoge 
 
 ## Description
 
